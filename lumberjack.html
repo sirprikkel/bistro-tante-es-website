@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumberjack BBQ — Bistro Tante Es</title>
+    <meta name="description" content="De Lumberjack van Tante Es — passie voor vuur en vlees. Lumberballs, spareribs en workshops op de Green Egg.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://analytics.code-lieshout.nl/script.js" data-website-id="f13bfc13-e70c-4e69-b2b4-8c9723ed8e28"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700&family=Playfair+Display+SC:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config={theme:{extend:{colors:{primary:'#DC2626',secondary:'#F87171',cta:'#CA8A04',bg:'#FEF2F2',txt:'#450A0A'},fontFamily:{display:['Playfair Display SC','serif'],sans:['Karla','sans-serif']}}}}
+    </script>
+    <style>
+        html{scroll-behavior:smooth}
+        @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
+        .hero-overlay{background:linear-gradient(to bottom,rgba(69,10,10,0.5),rgba(69,10,10,0.75))}
+        .fade-in{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease}
+        .fade-in.visible{opacity:1;transform:translateY(0)}
+    </style>
+</head>
+<body class="bg-bg text-txt font-sans">
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur border-b border-primary/10 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 flex items-center justify-between h-16">
+            <a href="/" class="font-display text-xl text-primary cursor-pointer">Tante Es</a>
+            <div class="hidden md:flex items-center gap-6">
+                <a href="/" class="text-txt hover:text-primary transition-colors duration-200 cursor-pointer">Home</a>
+                <a href="over-ons.html" class="text-txt hover:text-primary transition-colors duration-200 cursor-pointer">Over Ons</a>
+                <a href="menu.html" class="text-txt hover:text-primary transition-colors duration-200 cursor-pointer">Menu</a>
+                <a href="feestjes.html" class="text-txt hover:text-primary transition-colors duration-200 cursor-pointer">Feestjes</a>
+                <a href="lumberjack.html" class="text-primary font-semibold cursor-pointer">Lumberjack BBQ</a>
+                <a href="contact.html" class="bg-cta text-white px-5 py-2 rounded-lg hover:bg-yellow-700 transition-colors duration-200 cursor-pointer font-semibold">Reserveren</a>
+            </div>
+            <button id="menuBtn" class="md:hidden min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer" aria-label="Menu">
+                <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-primary/10 px-4 pb-4">
+            <a href="/" class="block py-3 text-txt hover:text-primary cursor-pointer">Home</a>
+            <a href="over-ons.html" class="block py-3 text-txt hover:text-primary cursor-pointer">Over Ons</a>
+            <a href="menu.html" class="block py-3 text-txt hover:text-primary cursor-pointer">Menu</a>
+            <a href="feestjes.html" class="block py-3 text-txt hover:text-primary cursor-pointer">Feestjes</a>
+            <a href="lumberjack.html" class="block py-3 text-primary font-semibold cursor-pointer">Lumberjack BBQ</a>
+            <a href="contact.html" class="block py-3 bg-cta text-white text-center rounded-lg cursor-pointer font-semibold">Reserveren</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative h-[50vh] min-h-[400px] flex items-center justify-center">
+        <img src="images/bbq1.jpg" alt="Lumberjack BBQ" class="absolute inset-0 w-full h-full object-cover">
+        <div class="hero-overlay absolute inset-0"></div>
+        <div class="relative z-10 text-center px-4">
+            <h1 class="font-display text-4xl md:text-5xl text-white mb-4">Lumberjack BBQ</h1>
+            <p class="text-white/80 text-lg">Passie voor vuur en vlees</p>
+        </div>
+    </section>
+
+    <!-- Intro -->
+    <section class="py-20 md:py-28 px-4 md:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="fade-in">
+                <span class="text-cta font-semibold uppercase tracking-widest text-sm">Mogen wij voorstellen</span>
+                <h2 class="font-display text-3xl md:text-4xl text-primary mt-4 mb-6">De Lumberjack</h2>
+                <p class="text-lg leading-relaxed mb-4">De man achter onze geweldige Lumberballs en de beroemde spareribs is onze eigen Lumberjack!</p>
+                <p class="text-lg leading-relaxed mb-4">Met zijn enorme passie voor vuur en vlees maakt hij voor ons de lekkerste gerechten.</p>
+            </div>
+            <div class="fade-in">
+                <img src="images/lumberjack1.jpeg" alt="De Lumberjack" class="rounded-2xl shadow-xl w-full object-cover aspect-square" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Lumberballs -->
+    <section class="bg-white py-20 px-4 md:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="fade-in order-2 md:order-1">
+                <img src="images/bbq2.jpg" alt="Lumberballs" class="rounded-2xl shadow-xl w-full object-cover aspect-square" loading="lazy">
+            </div>
+            <div class="fade-in order-1 md:order-2">
+                <h2 class="font-display text-3xl text-primary mb-6">De Beroemde Lumberballs</h2>
+                <p class="text-lg leading-relaxed mb-4">Hij ontwikkelde zijn eigen Lumberballs — een uniek rundergehakt balletje, natuurlijk met eerlijk vlees van MvL Streekvlees.</p>
+                <p class="text-lg leading-relaxed mb-4">Deze worden bereid met zijn eigen kruidenmix, omhuld in een spekjasje. Ze garen heerlijk op de Green Egg om vervolgens afgetopt te worden met een geweldige marinade!</p>
+                <p class="text-lg leading-relaxed font-semibold text-primary">Zo lekker krijg je ze nergens!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specials -->
+    <section class="py-20 px-4 md:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto text-center fade-in">
+            <h2 class="font-display text-3xl text-primary mb-8">Meer van de Lumberjack</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/></svg>
+                    </div>
+                    <h3 class="font-display text-xl text-primary mb-3">Op Maat Bereid</h3>
+                    <p class="text-txt/70">Voor de liefhebber bakt hij graag een groot of bijzonder stuk vlees! Stem dit altijd even met hem af.</p>
+                </div>
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                    </div>
+                    <h3 class="font-display text-xl text-primary mb-3">Workshops</h3>
+                    <p class="text-txt/70">Hij verzorgt op verzoek workshops vlees bereiden op de kamado of de smoker!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BBQ galerij -->
+    <section class="py-16 px-4 bg-white">
+        <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-3">
+            <img src="images/bbq_team.jpg" alt="BBQ team" class="rounded-xl w-full h-48 object-cover fade-in" loading="lazy">
+            <img src="images/bbq3.jpg" alt="BBQ" class="rounded-xl w-full h-48 object-cover fade-in" loading="lazy">
+            <img src="images/lumberjack2.jpeg" alt="Lumberjack" class="rounded-xl w-full h-48 object-cover fade-in" loading="lazy">
+            <img src="images/food3.jpeg" alt="BBQ gerecht" class="rounded-xl w-full h-48 object-cover fade-in" loading="lazy">
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-primary py-16 px-4 text-center">
+        <div class="max-w-3xl mx-auto fade-in">
+            <h2 class="font-display text-3xl text-white mb-4">Catering Nodig?</h2>
+            <p class="text-white/80 mb-8 text-lg">Ook voor een leuke catering kun je ons altijd bellen!</p>
+            <a href="contact.html" class="bg-cta hover:bg-yellow-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors duration-200 cursor-pointer inline-block min-h-[44px]">Neem Contact Op</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-txt text-white py-16 px-4 md:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-12">
+            <div><h3 class="font-display text-xl mb-4">Tante Es</h3><p class="text-white/70">Bourgondisch genieten in Ravenstein aan de Maas.</p></div>
+            <div><h3 class="font-display text-xl mb-4">Menu</h3><ul class="space-y-2"><li><a href="over-ons.html" class="text-white/70 hover:text-white cursor-pointer">Over Ons</a></li><li><a href="menu.html" class="text-white/70 hover:text-white cursor-pointer">Ons Menu</a></li><li><a href="feestjes.html" class="text-white/70 hover:text-white cursor-pointer">Feestjes</a></li><li><a href="lumberjack.html" class="text-white/70 hover:text-white cursor-pointer">Lumberjack BBQ</a></li><li><a href="contact.html" class="text-white/70 hover:text-white cursor-pointer">Contact</a></li></ul></div>
+            <div><h3 class="font-display text-xl mb-4">Contact</h3><p class="text-white/70 mb-2">Marktstraat 16, 5371 AD Ravenstein</p><p class="text-white/70 mb-2"><a href="tel:0648239327" class="hover:text-white cursor-pointer">06 - 48239327</a></p><p class="text-white/70"><a href="mailto:Info@TanteEsBorrelBistro.nl" class="hover:text-white cursor-pointer">Info@TanteEsBorrelBistro.nl</a></p><div class="text-white/50 text-sm mt-4"><p>Do 17:00–22:00 · Vr 17:00–00:00</p><p>Za 17:00–00:00 · Zo 14:00–21:00</p></div></div>
+        </div>
+        <div class="max-w-6xl mx-auto mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-white/40 text-sm">© 2026 Tante Es Borrel & Bistro</p>
+            <p class="text-white/40 text-sm">Gebouwd door <a href="https://www.code-lieshout.nl" class="hover:text-white cursor-pointer">Code Lieshout</a></p>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('menuBtn').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.toggle('hidden')});
+        const observer=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')})},{threshold:0.1});
+        document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+    </script>
+</body>
+</html>

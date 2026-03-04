@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Over Ons — Bistro Tante Es</title>
+    <meta name="description" content="Maak kennis met Armand en Tante Es — de gastronomie is ons allermooiste vak.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://analytics.code-lieshout.nl/script.js" data-website-id="f13bfc13-e70c-4e69-b2b4-8c9723ed8e28"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700&family=Playfair+Display+SC:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: { extend: { colors: { primary: '#DC2626', secondary: '#F87171', cta: '#CA8A04', bg: '#FEF2F2', txt: '#450A0A' }, fontFamily: { display: ['Playfair Display SC','serif'], sans: ['Karla','sans-serif'] } } }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+        .hero-overlay { background: linear-gradient(to bottom, rgba(69,10,10,0.5), rgba(69,10,10,0.7)); }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="bg-bg text-txt font-sans">
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur border-b border-primary/10 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 flex items-center justify-between h-16">
+            <a href="/" class="font-display text-xl text-primary cursor-pointer">Tante Es</a>
+            <div class="hidden md:flex items-center gap-6">
+                <a href="/" class="text-txt hover:text-primary transition-colors duration-200 cursor-pointer">Home</a>
+                <a href="over-ons.html" class="text-primary font-semibold cursor-pointer">Over Ons</a>
+                <a href="menu.html" class="text-txt hover:text-primary transition-colors duration-200 cursor-pointer">Menu</a>
+                <a href="feestjes.html" class="text-txt hover:text-primary transition-colors duration-200 cursor-pointer">Feestjes</a>
+                <a href="lumberjack.html" class="text-txt hover:text-primary transition-colors duration-200 cursor-pointer">Lumberjack BBQ</a>
+                <a href="contact.html" class="bg-cta text-white px-5 py-2 rounded-lg hover:bg-yellow-700 transition-colors duration-200 cursor-pointer font-semibold">Reserveren</a>
+            </div>
+            <button id="menuBtn" class="md:hidden min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer" aria-label="Menu">
+                <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-primary/10 px-4 pb-4">
+            <a href="/" class="block py-3 text-txt hover:text-primary cursor-pointer">Home</a>
+            <a href="over-ons.html" class="block py-3 text-primary font-semibold cursor-pointer">Over Ons</a>
+            <a href="menu.html" class="block py-3 text-txt hover:text-primary cursor-pointer">Menu</a>
+            <a href="feestjes.html" class="block py-3 text-txt hover:text-primary cursor-pointer">Feestjes</a>
+            <a href="lumberjack.html" class="block py-3 text-txt hover:text-primary cursor-pointer">Lumberjack BBQ</a>
+            <a href="contact.html" class="block py-3 bg-cta text-white text-center rounded-lg cursor-pointer font-semibold">Reserveren</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative h-[50vh] min-h-[400px] flex items-center justify-center">
+        <img src="images/sfeer1.jpeg" alt="Sfeer Tante Es" class="absolute inset-0 w-full h-full object-cover">
+        <div class="hero-overlay absolute inset-0"></div>
+        <div class="relative z-10 text-center px-4">
+            <h1 class="font-display text-4xl md:text-5xl text-white mb-4">Over Ons</h1>
+            <p class="text-white/80 text-lg">Maak kennis met Armand & Tante Es</p>
+        </div>
+    </section>
+
+    <!-- Verhaal -->
+    <section class="py-20 md:py-28 px-4 md:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-20 fade-in">
+                <img src="images/overons1.jpeg" alt="Armand en Tante Es" class="rounded-2xl shadow-xl w-full object-cover aspect-[4/5]" loading="lazy">
+                <div>
+                    <span class="text-cta font-semibold uppercase tracking-widest text-sm">Ons Verhaal</span>
+                    <h2 class="font-display text-3xl text-primary mt-4 mb-6">Passie voor Gastronomie</h2>
+                    <p class="text-lg leading-relaxed mb-4">Graag stellen wij ons aan u voor — Armand en Tante Es. Sinds mensenheugenis zijn wij altijd in de weer met wat wij het allermooiste vak vinden: de gastronomie.</p>
+                    <p class="text-lg leading-relaxed mb-4">De afgelopen jaren kon je ons vinden aan ons vertrouwde plekje op de dijk in Demen, helaas bleek het runnen van twee horeca zaken toch wat te veel van het goede.</p>
+                    <p class="text-lg leading-relaxed">Dus besloten wij ons te richten op dit pareltje in Ravenstein.</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center fade-in">
+                <div class="order-2 md:order-1">
+                    <h2 class="font-display text-3xl text-primary mb-6">Van Brouwerij tot Bistro</h2>
+                    <p class="text-lg leading-relaxed mb-4">Voorheen bekend als (brouw)lokaal 32. Nu de brouwerij gestopt is hebben wij besloten onze passie voor eten weer te gaan delen.</p>
+                    <p class="text-lg leading-relaxed mb-4">Inmiddels is de oude brouwerij omgetoverd tot sfeervolle eet plek. En heeft de keuken haar oude functie terug.</p>
+                    <p class="text-lg leading-relaxed mb-6">Geen zorgen voor onze vertrouwde lokaal gasten, het voorste gedeelte blijft wat zij was, de gezelligste huiskamer van Ravenstein!</p>
+                    <p class="text-lg italic text-primary/80">We hopen jullie snel (weer) te ontmoeten!</p>
+                    <p class="font-display text-xl text-primary mt-4">Armand en Tante Es</p>
+                </div>
+                <img src="images/interior4.jpeg" alt="Interieur Tante Es" class="rounded-2xl shadow-xl w-full object-cover aspect-[4/5] order-1 md:order-2" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Sfeer grid -->
+    <section class="py-16 px-4 bg-white">
+        <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-3">
+            <img src="images/interior1.jpeg" alt="Interieur" class="rounded-xl w-full h-48 object-cover fade-in" loading="lazy">
+            <img src="images/interior2.jpeg" alt="Interieur" class="rounded-xl w-full h-48 object-cover fade-in" loading="lazy">
+            <img src="images/google/google_place_3.jpg" alt="Sfeer" class="rounded-xl w-full h-48 object-cover fade-in" loading="lazy">
+            <img src="images/google/google_place_4.jpg" alt="Sfeer" class="rounded-xl w-full h-48 object-cover fade-in" loading="lazy">
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-primary py-16 px-4 text-center">
+        <div class="max-w-3xl mx-auto fade-in">
+            <h2 class="font-display text-3xl text-white mb-6">Schuif Gezellig Aan</h2>
+            <a href="contact.html" class="bg-cta hover:bg-yellow-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors duration-200 cursor-pointer inline-block min-h-[44px]">Reserveren</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-txt text-white py-16 px-4 md:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-12">
+            <div>
+                <h3 class="font-display text-xl mb-4">Tante Es</h3>
+                <p class="text-white/70 leading-relaxed">Bourgondisch genieten midden in het prachtige vestingstadje Ravenstein aan de Maas.</p>
+            </div>
+            <div>
+                <h3 class="font-display text-xl mb-4">Menu</h3>
+                <ul class="space-y-2">
+                    <li><a href="over-ons.html" class="text-white/70 hover:text-white transition-colors duration-200 cursor-pointer">Over Ons</a></li>
+                    <li><a href="menu.html" class="text-white/70 hover:text-white transition-colors duration-200 cursor-pointer">Ons Menu</a></li>
+                    <li><a href="feestjes.html" class="text-white/70 hover:text-white transition-colors duration-200 cursor-pointer">Feestjes & Evenementen</a></li>
+                    <li><a href="lumberjack.html" class="text-white/70 hover:text-white transition-colors duration-200 cursor-pointer">Lumberjack BBQ</a></li>
+                    <li><a href="contact.html" class="text-white/70 hover:text-white transition-colors duration-200 cursor-pointer">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-display text-xl mb-4">Contact</h3>
+                <p class="text-white/70 mb-2">Marktstraat 16, 5371 AD Ravenstein</p>
+                <p class="text-white/70 mb-2"><a href="tel:0648239327" class="hover:text-white transition-colors duration-200 cursor-pointer">06 - 48239327</a></p>
+                <p class="text-white/70 mb-4"><a href="mailto:Info@TanteEsBorrelBistro.nl" class="hover:text-white transition-colors duration-200 cursor-pointer">Info@TanteEsBorrelBistro.nl</a></p>
+                <div class="text-white/50 text-sm"><p>Do 17:00–22:00 · Vr 17:00–00:00</p><p>Za 17:00–00:00 · Zo 14:00–21:00</p></div>
+            </div>
+        </div>
+        <div class="max-w-6xl mx-auto mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-white/40 text-sm">© 2026 Tante Es Borrel & Bistro</p>
+            <p class="text-white/40 text-sm">Gebouwd door <a href="https://www.code-lieshout.nl" class="hover:text-white transition-colors duration-200 cursor-pointer">Code Lieshout</a></p>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('menuBtn').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.toggle('hidden')});
+        const observer=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')})},{threshold:0.1});
+        document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+    </script>
+</body>
+</html>

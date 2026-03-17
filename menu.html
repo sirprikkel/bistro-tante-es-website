@@ -6,132 +6,190 @@
     <title>Ons Menu — Bistro Tante Es</title>
     <meta name="description" content="Bekijk het menu van Bistro Tante Es in Ravenstein. Bourgondisch genieten met seizoensgebonden gerechten.">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script defer src="https://analytics.code-lieshout.nl/prikkel" data-website-id="f13bfc13-e70c-4e69-b2b4-8c9723ed8e28"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700&family=Playfair+Display+SC:wght@400;700&display=swap" rel="stylesheet">
+    <script defer src="https://analytics.code-lieshout.nl/script.js" data-website-id="f13bfc13-e70c-4e69-b2b4-8c9723ed8e28"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700&family=Playfair+Display+SC:wght@400;700;900&display=swap" rel="stylesheet">
     <script>
-        tailwind.config={theme:{extend:{colors:{primary:'#DC2626',secondary:'#F87171',cta:'#CA8A04',bg:'#FEF2F2',txt:'#450A0A'},fontFamily:{display:['Playfair Display SC','serif'],sans:['Karla','sans-serif']}}}}
+        tailwind.config = {
+            theme: { extend: { colors: { primary: '#c4a127', 'primary-dark': '#997e1f', secondary: '#8B6914', cta: '#c4a127', bg: '#FFFAF0', 'bg-warm': '#FFF5E6', 'bg-dark': '#2C1810', txt: '#2C1810', 'txt-muted': '#6B5344', border: '#E8DDD4' }, fontFamily: { display: ['Playfair Display SC','serif'], sans: ['Karla','sans-serif'] } } }
+        }
     </script>
     <style>
-        html{scroll-behavior:smooth}
-        @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
-        .hero-overlay{background:linear-gradient(to bottom,rgba(69,10,10,0.5),rgba(69,10,10,0.7))}
-        .fade-in{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease}
-        .fade-in.visible{opacity:1;transform:translateY(0)}
+        html { scroll-behavior: smooth; }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+        .block-card { background: #FFFAF0; border: 2px solid #2C1810; box-shadow: 6px 6px 0 #2C1810; transition: all 0.2s ease; }
+        .block-card:hover { box-shadow: 4px 4px 0 #2C1810; transform: translate(2px, 2px); }
+        .btn-primary { display: inline-flex; align-items: center; justify-content: center; padding: 1rem 2rem; background: #c4a127; color: #fff; font-weight: 600; letter-spacing: 0.02em; border: 2px solid #2C1810; box-shadow: 4px 4px 0 #2C1810; transition: all 0.15s ease; cursor: pointer; }
+        .btn-primary:hover { box-shadow: 2px 2px 0 #2C1810; transform: translate(2px, 2px); }
+        .btn-secondary { display: inline-flex; align-items: center; justify-content: center; padding: 1rem 2rem; background: transparent; color: #2C1810; font-weight: 600; letter-spacing: 0.02em; border: 2px solid #2C1810; box-shadow: 4px 4px 0 #2C1810; transition: all 0.15s ease; cursor: pointer; }
+        .btn-secondary:hover { background: #2C1810; color: #FFFAF0; box-shadow: 2px 2px 0 #2C1810; transform: translate(2px, 2px); }
+        .menu-card { background: #fff; overflow: hidden; box-shadow: 0 4px 16px rgba(44,24,16,0.06); transition: all 0.3s ease; border: 2px solid #2C1810; }
+        .menu-card:hover { box-shadow: 0 8px 30px rgba(44,24,16,0.12); transform: translateY(-4px); }
+        .divider { display: flex; align-items: center; gap: 1rem; }
+        .divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: #E8DDD4; }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 <body class="bg-bg text-txt font-sans">
+
     <!-- Navbar -->
-    <nav class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur border-b border-primary/10 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 flex items-center justify-between h-16">
-            <a href="/" class="font-display text-xl text-primary cursor-pointer">Tante Es</a>
-            <div class="hidden md:flex items-center gap-6">
-                <a href="/" class="text-txt hover:text-primary transition-colors duration-200 cursor-pointer">Home</a>
-                <a href="over-ons.html" class="text-txt hover:text-primary transition-colors duration-200 cursor-pointer">Over Ons</a>
-                <a href="menu.html" class="text-primary font-semibold cursor-pointer">Menu</a>
-                <a href="feestjes.html" class="text-txt hover:text-primary transition-colors duration-200 cursor-pointer">Feestjes</a>
-                <a href="lumberjack.html" class="text-txt hover:text-primary transition-colors duration-200 cursor-pointer">Lumberjack BBQ</a>
-                <a href="contact.html" class="bg-cta text-white px-5 py-2 rounded-lg hover:bg-amber-800 transition-colors duration-200 cursor-pointer font-semibold">Reserveren</a>
+    <nav class="fixed top-4 left-4 right-4 z-50">
+        <div class="max-w-6xl mx-auto bg-bg/95 backdrop-blur-sm border-2 border-txt px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="/" class="cursor-pointer"><span class="text-2xl font-bold tracking-wide font-display">Tante Es</span></a>
+                <div class="hidden md:flex items-center gap-6 sm:gap-8">
+                    <a href="/" class="text-sm font-medium text-txt-muted hover:text-primary transition-colors cursor-pointer">Home</a>
+                    <a href="over-ons.html" class="text-sm font-medium text-txt-muted hover:text-primary transition-colors cursor-pointer">Over Ons</a>
+                    <a href="menu.html" class="text-sm font-medium text-primary transition-colors cursor-pointer">Menu</a>
+                    <a href="feestjes.html" class="text-sm font-medium text-txt-muted hover:text-primary transition-colors cursor-pointer">Feestjes</a>
+                    <a href="lumberjack.html" class="text-sm font-medium text-txt-muted hover:text-primary transition-colors cursor-pointer">Lumberjack BBQ</a>
+                </div>
+                <div class="hidden md:block"><a href="contact.html" class="btn-primary text-sm py-2.5 px-5">Reserveren</a></div>
+                <button id="menuBtn" class="md:hidden p-2 cursor-pointer" aria-label="Menu"><svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
             </div>
-            <button id="menuBtn" class="md:hidden min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer" aria-label="Menu">
-                <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-            </button>
-        </div>
-        <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-primary/10 px-4 pb-4">
-            <a href="/" class="block py-3 text-txt hover:text-primary cursor-pointer">Home</a>
-            <a href="over-ons.html" class="block py-3 text-txt hover:text-primary cursor-pointer">Over Ons</a>
-            <a href="menu.html" class="block py-3 text-primary font-semibold cursor-pointer">Menu</a>
-            <a href="feestjes.html" class="block py-3 text-txt hover:text-primary cursor-pointer">Feestjes</a>
-            <a href="lumberjack.html" class="block py-3 text-txt hover:text-primary cursor-pointer">Lumberjack BBQ</a>
-            <a href="contact.html" class="block py-3 bg-cta text-white text-center rounded-lg cursor-pointer font-semibold">Reserveren</a>
+            <div id="mobileMenu" class="hidden md:hidden pt-6 mt-4 border-t-2 border-txt">
+                <div class="flex flex-col gap-4">
+                    <a href="/" class="text-sm font-medium hover:text-primary cursor-pointer">Home</a>
+                    <a href="over-ons.html" class="text-sm font-medium hover:text-primary cursor-pointer">Over Ons</a>
+                    <a href="menu.html" class="text-sm font-medium text-primary cursor-pointer">Menu</a>
+                    <a href="feestjes.html" class="text-sm font-medium hover:text-primary cursor-pointer">Feestjes</a>
+                    <a href="lumberjack.html" class="text-sm font-medium hover:text-primary cursor-pointer">Lumberjack BBQ</a>
+                    <a href="contact.html" class="btn-primary text-sm py-2.5 text-center mt-2">Reserveren</a>
+                </div>
+            </div>
         </div>
     </nav>
 
     <!-- Hero -->
-    <section class="relative h-[50vh] min-h-[400px] flex items-center justify-center">
-        <img src="images/food1.jpg" alt="Gerechten Tante Es" class="absolute inset-0 w-full h-full object-cover">
-        <div class="hero-overlay absolute inset-0"></div>
-        <div class="relative z-10 text-center px-4">
-            <h1 class="font-display text-4xl md:text-5xl text-white mb-4">Ons Menu</h1>
-            <p class="text-white/80 text-lg max-w-xl mx-auto">Wanneer je het beter hebt dan anderen... bouw je een grotere tafel. Geen hoger hek!</p>
+    <section class="pt-32 pb-12 px-6">
+        <div class="max-w-6xl mx-auto text-center">
+            <div class="divider max-w-xs mx-auto mb-4">
+                <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0118 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>
+            </div>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 font-display">Ons Menu</h1>
+            <p class="text-txt-muted text-lg max-w-2xl mx-auto mb-4">"Wanneer je het beter hebt dan anderen... bouw je een grotere tafel. Geen hoger hek!"</p>
         </div>
     </section>
 
     <!-- Quote -->
-    <section class="py-16 px-4 text-center bg-white">
-        <div class="max-w-3xl mx-auto fade-in">
-            <blockquote class="font-display text-2xl md:text-3xl text-primary italic leading-relaxed">"Een goede Maaltijd brengt goede mensen samen"</blockquote>
-            <p class="text-txt/60 mt-4 text-lg">— Socrates</p>
+    <section class="py-12 px-6 bg-bg-warm">
+        <div class="max-w-3xl mx-auto text-center fade-in">
+            <div class="block-card p-10 text-center">
+                <blockquote class="font-display text-2xl md:text-3xl text-primary italic leading-relaxed">"Een goede Maaltijd brengt goede mensen samen"</blockquote>
+                <p class="text-txt-muted mt-4 text-lg">— Socrates</p>
+            </div>
         </div>
     </section>
 
-    <!-- Menu info -->
-    <section class="py-20 md:py-28 px-4 md:px-6 lg:px-8">
-        <div class="max-w-4xl mx-auto text-center fade-in">
-            <span class="text-cta font-semibold uppercase tracking-widest text-sm">Seizoensgebonden</span>
-            <h2 class="font-display text-3xl md:text-4xl text-primary mt-4 mb-8">Onze Kaart</h2>
-            <p class="text-lg leading-relaxed mb-8 max-w-2xl mx-auto">Ons menu wisselt regelmatig op basis van het seizoen en de beste ingrediënten die beschikbaar zijn. Neem contact op voor de actuele kaart of kom langs!</p>
-            
-            <div class="grid md:grid-cols-2 gap-8 mt-12">
-                <div class="bg-white rounded-2xl p-8 shadow-lg fade-in">
-                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+    <!-- Menu aanbod -->
+    <section class="py-12 sm:py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-10 sm:mb-16">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 font-display">Onze Kaart</h2>
+                <p class="text-txt-muted max-w-2xl mx-auto">Ons menu wisselt regelmatig op basis van het seizoen en de beste ingrediënten. Neem contact op voor de actuele kaart of kom langs!</p>
+            </div>
+            <div class="space-y-16">
+                <div>
+                    <h3 class="text-2xl font-bold text-center mb-8 text-primary font-display">Borrel & Diner</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="menu-card flex gap-4 p-4 cursor-pointer">
+                            <img src="images/food2.jpeg" alt="Borrel" class="w-24 h-24 object-cover flex-shrink-0">
+                            <div class="flex-1 min-w-0">
+                                <h4 class="font-bold text-lg font-display">Borrel Plank</h4>
+                                <p class="text-sm text-txt-muted">Uitgebreide borrelplank met lokale producten en huisgemaakte dips.</p>
+                            </div>
+                        </div>
+                        <div class="menu-card flex gap-4 p-4 cursor-pointer">
+                            <img src="images/food3.jpeg" alt="Diner" class="w-24 h-24 object-cover flex-shrink-0">
+                            <div class="flex-1 min-w-0">
+                                <h4 class="font-bold text-lg font-display">Seizoensmenu</h4>
+                                <p class="text-sm text-txt-muted">Wekelijks wisselend menu op basis van de beste seizoensproducten.</p>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="font-display text-xl text-primary mb-3">Borrel & Diner</h3>
-                    <p class="text-txt/70">Heerlijk borrelen of uitgebreid dineren. Onze uitgebreide drankkaart maakt het compleet.</p>
                 </div>
-                <div class="bg-white rounded-2xl p-8 shadow-lg fade-in">
-                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/></svg>
+                <div>
+                    <h3 class="text-2xl font-bold text-center mb-8 text-primary font-display">BBQ Specials</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="menu-card flex gap-4 p-4 cursor-pointer">
+                            <img src="images/bbq1.jpg" alt="Lumberballs" class="w-24 h-24 object-cover flex-shrink-0">
+                            <div class="flex-1 min-w-0">
+                                <h4 class="font-bold text-lg font-display">Lumberballs</h4>
+                                <p class="text-sm text-txt-muted">Unieke rundergehaktballetjes in een spekjasje, op de Green Egg bereid. Zo lekker krijg je ze nergens!</p>
+                            </div>
+                        </div>
+                        <div class="menu-card flex gap-4 p-4 cursor-pointer">
+                            <img src="images/food4.jpeg" alt="Spareribs" class="w-24 h-24 object-cover flex-shrink-0">
+                            <div class="flex-1 min-w-0">
+                                <h4 class="font-bold text-lg font-display">Beroemde Spareribs</h4>
+                                <p class="text-sm text-txt-muted">Slow-cooked spareribs van MvL Streekvlees — melt-in-your-mouth garantie.</p>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="font-display text-xl text-primary mb-3">BBQ Specials</h3>
-                    <p class="text-txt/70">Onze Lumberjack bereidt de lekkerste Lumberballs en spareribs op de Green Egg.</p>
                 </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-center mb-8 text-primary font-display">Dranken</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="menu-card flex gap-4 p-4 cursor-pointer">
+                            <img src="images/google/google_place_5.jpg" alt="Bier" class="w-24 h-24 object-cover flex-shrink-0">
+                            <div class="flex-1 min-w-0">
+                                <h4 class="font-bold text-lg font-display">8 Eigen Bieren</h4>
+                                <p class="text-sm text-txt-muted">Zelf gebrouwen bieren van de tap — altijd een verrassende keuze.</p>
+                            </div>
+                        </div>
+                        <div class="menu-card flex gap-4 p-4 cursor-pointer">
+                            <img src="images/food1.jpg" alt="Wijnkaart" class="w-24 h-24 object-cover flex-shrink-0">
+                            <div class="flex-1 min-w-0">
+                                <h4 class="font-bold text-lg font-display">Uitgebreide Wijnkaart</h4>
+                                <p class="text-sm text-txt-muted">De wijn smaakt altijd lekker bij Tante Es — van huiswijn tot bijzondere flessen.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="contact.html" class="btn-secondary">Reserveer een Tafel<svg class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
             </div>
         </div>
     </section>
 
     <!-- Menukaart afbeelding -->
-    <section class="py-16 px-4 bg-white">
+    <section class="py-12 sm:py-20 px-6 bg-bg-warm">
         <div class="max-w-2xl mx-auto text-center fade-in">
-            <h2 class="font-display text-2xl text-primary mb-8">Menukaart</h2>
-            <img src="images/menu_card.png" alt="Menukaart Tante Es" class="rounded-2xl shadow-xl w-full" loading="lazy">
-            <p class="mt-6 text-txt/60">De kaart kan per seizoen wijzigen. Bel voor de actuele menukaart.</p>
-        </div>
-    </section>
-
-    <!-- Food galerij -->
-    <section class="py-16 px-4">
-        <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-3">
-            <img src="images/food2.jpeg" alt="Gerecht" class="rounded-xl w-full h-48 object-cover fade-in" loading="lazy">
-            <img src="images/food3.jpeg" alt="Gerecht" class="rounded-xl w-full h-48 object-cover fade-in" loading="lazy">
-            <img src="images/food4.jpeg" alt="Gerecht" class="rounded-xl w-full h-48 object-cover fade-in" loading="lazy">
-            <img src="images/google/google_place_5.jpg" alt="Gerecht" class="rounded-xl w-full h-48 object-cover fade-in" loading="lazy">
+            <h2 class="font-display text-2xl text-primary mb-8 font-display">Menukaart</h2>
+            <div class="block-card overflow-hidden">
+                <img src="images/menu_card.png" alt="Menukaart Tante Es" class="w-full">
+            </div>
+            <p class="mt-6 text-txt-muted">De kaart kan per seizoen wijzigen. Bel voor de actuele menukaart.</p>
         </div>
     </section>
 
     <!-- CTA -->
-    <section class="bg-primary py-16 px-4 text-center">
-        <div class="max-w-3xl mx-auto fade-in">
-            <h2 class="font-display text-3xl text-white mb-4">Zin Gekregen?</h2>
-            <p class="text-white/80 mb-8 text-lg">Reserveer een tafel of bel ons voor de actuele kaart.</p>
+    <section class="py-12 sm:py-20 px-6 bg-bg-dark text-white">
+        <div class="max-w-3xl mx-auto text-center fade-in">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 font-display">Zin Gekregen?</h2>
+            <p class="text-white/70 mb-8">Reserveer een tafel of bel ons voor de actuele kaart.</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="contact.html" class="bg-cta hover:bg-amber-800 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors duration-200 cursor-pointer min-h-[44px]">Reserveren</a>
-                <a href="tel:0648239327" class="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 rounded-lg text-lg font-semibold transition-colors duration-200 cursor-pointer min-h-[44px]">06 - 48239327</a>
+                <a href="contact.html" class="btn-primary text-lg">Reserveren</a>
+                <a href="tel:0648239327" style="display:inline-flex;align-items:center;justify-content:center;padding:1rem 2rem;background:transparent;color:#fff;font-weight:600;letter-spacing:0.02em;border:2px solid #fff;box-shadow:4px 4px 0 rgba(255,255,255,0.3);transition:all 0.15s ease;cursor:pointer;">06 - 48239327</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-txt text-white py-16 px-4 md:px-6 lg:px-8">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-12">
-            <div><h3 class="font-display text-xl mb-4">Tante Es</h3><p class="text-white/70">Bourgondisch genieten in Ravenstein aan de Maas.</p></div>
-            <div><h3 class="font-display text-xl mb-4">Menu</h3><ul class="space-y-2"><li><a href="over-ons.html" class="text-white/70 hover:text-white transition-colors duration-200 cursor-pointer">Over Ons</a></li><li><a href="menu.html" class="text-white/70 hover:text-white transition-colors duration-200 cursor-pointer">Ons Menu</a></li><li><a href="feestjes.html" class="text-white/70 hover:text-white transition-colors duration-200 cursor-pointer">Feestjes</a></li><li><a href="lumberjack.html" class="text-white/70 hover:text-white transition-colors duration-200 cursor-pointer">Lumberjack BBQ</a></li><li><a href="contact.html" class="text-white/70 hover:text-white transition-colors duration-200 cursor-pointer">Contact</a></li></ul></div>
-            <div><h3 class="font-display text-xl mb-4">Contact</h3><p class="text-white/70 mb-2">Marktstraat 16, 5371 AD Ravenstein</p><p class="text-white/70 mb-2"><a href="tel:0648239327" class="hover:text-white cursor-pointer">06 - 48239327</a></p><p class="text-white/70 mb-4"><a href="mailto:Info@TanteEsBorrelBistro.nl" class="hover:text-white cursor-pointer">Info@TanteEsBorrelBistro.nl</a></p><div class="text-white/50 text-sm"><p>Do 17:00–22:00 · Vr 17:00–00:00</p><p>Za 17:00–00:00 · Zo 14:00–21:00</p></div></div>
-        </div>
-        <div class="max-w-6xl mx-auto mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-white/40 text-sm">© 2026 Tante Es Borrel & Bistro</p>
-            <p class="text-white/40 text-sm">Gebouwd door <a href="https://www.code-lieshout.nl" class="hover:text-white cursor-pointer">Code Lieshout</a></p>
+    <footer class="py-10 sm:py-16 px-6 bg-bg-dark text-white border-t border-white/10">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div><span class="text-2xl font-bold font-display">Tante Es</span><p class="text-white/60 mt-4">Bourgondisch genieten in Ravenstein aan de Maas.</p></div>
+                <div><h4 class="font-bold mb-4 font-display">Pagina's</h4><ul class="space-y-2"><li><a href="over-ons.html" class="text-white/60 hover:text-primary transition-colors cursor-pointer">Over Ons</a></li><li><a href="menu.html" class="text-white/60 hover:text-primary transition-colors cursor-pointer">Menu</a></li><li><a href="feestjes.html" class="text-white/60 hover:text-primary transition-colors cursor-pointer">Feestjes</a></li><li><a href="lumberjack.html" class="text-white/60 hover:text-primary transition-colors cursor-pointer">Lumberjack BBQ</a></li><li><a href="contact.html" class="text-white/60 hover:text-primary transition-colors cursor-pointer">Contact</a></li></ul></div>
+                <div><h4 class="font-bold mb-4 font-display">Contact</h4><p class="text-white/60 mb-2">Marktstraat 16, 5371 AD Ravenstein</p><p class="text-white/60 mb-2"><a href="tel:0648239327" class="hover:text-primary cursor-pointer">06 - 48239327</a></p><p class="text-white/60"><a href="mailto:Info@TanteEsBorrelBistro.nl" class="hover:text-primary cursor-pointer">Info@TanteEsBorrelBistro.nl</a></p><div class="text-white/40 text-sm mt-4"><p>Do 17:00–22:00 · Vr 17:00–00:00</p><p>Za 17:00–00:00 · Zo 14:00–21:00</p></div></div>
+            </div>
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-white/40">© 2026 Tante Es Borrel & Bistro, Ravenstein</p>
+                <p class="text-sm text-white/40">Gebouwd door <a href="https://www.code-lieshout.nl" class="hover:text-white cursor-pointer">Code Lieshout</a></p>
+            </div>
         </div>
     </footer>
     <script>

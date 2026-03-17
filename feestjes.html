@@ -6,148 +6,174 @@
     <title>Feestjes & Evenementen — Bistro Tante Es</title>
     <meta name="description" content="Verjaardag, receptie, huwelijk of koffietafel — Tante Es organiseert uw dag precies zoals u hem in gedachten heeft.">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script defer src="https://analytics.code-lieshout.nl/prikkel" data-website-id="f13bfc13-e70c-4e69-b2b4-8c9723ed8e28"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700&family=Playfair+Display+SC:wght@400;700&display=swap" rel="stylesheet">
+    <script defer src="https://analytics.code-lieshout.nl/script.js" data-website-id="f13bfc13-e70c-4e69-b2b4-8c9723ed8e28"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700&family=Playfair+Display+SC:wght@400;700;900&display=swap" rel="stylesheet">
     <script>
-        tailwind.config={theme:{extend:{colors:{primary:'#DC2626',secondary:'#F87171',cta:'#CA8A04',bg:'#FEF2F2',txt:'#450A0A'},fontFamily:{display:['Playfair Display SC','serif'],sans:['Karla','sans-serif']}}}}
+        tailwind.config = {
+            theme: { extend: { colors: { primary: '#c4a127', 'primary-dark': '#997e1f', secondary: '#8B6914', cta: '#c4a127', bg: '#FFFAF0', 'bg-warm': '#FFF5E6', 'bg-dark': '#2C1810', txt: '#2C1810', 'txt-muted': '#6B5344', border: '#E8DDD4' }, fontFamily: { display: ['Playfair Display SC','serif'], sans: ['Karla','sans-serif'] } } }
+        }
     </script>
     <style>
-        html{scroll-behavior:smooth}
-        @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
-        .hero-overlay{background:linear-gradient(to bottom,rgba(69,10,10,0.5),rgba(69,10,10,0.7))}
-        .fade-in{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease}
-        .fade-in.visible{opacity:1;transform:translateY(0)}
-        .card-hover{transition:transform 0.25s ease,box-shadow 0.25s ease}
-        .card-hover:hover{transform:translateY(-6px);box-shadow:0 12px 32px rgba(220,38,38,0.15)}
+        html { scroll-behavior: smooth; }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+        .block-card { background: #FFFAF0; border: 2px solid #2C1810; box-shadow: 6px 6px 0 #2C1810; transition: all 0.2s ease; }
+        .block-card:hover { box-shadow: 4px 4px 0 #2C1810; transform: translate(2px, 2px); }
+        .btn-primary { display: inline-flex; align-items: center; justify-content: center; padding: 1rem 2rem; background: #c4a127; color: #fff; font-weight: 600; letter-spacing: 0.02em; border: 2px solid #2C1810; box-shadow: 4px 4px 0 #2C1810; transition: all 0.15s ease; cursor: pointer; }
+        .btn-primary:hover { box-shadow: 2px 2px 0 #2C1810; transform: translate(2px, 2px); }
+        .btn-secondary { display: inline-flex; align-items: center; justify-content: center; padding: 1rem 2rem; background: transparent; color: #2C1810; font-weight: 600; letter-spacing: 0.02em; border: 2px solid #2C1810; box-shadow: 4px 4px 0 #2C1810; transition: all 0.15s ease; cursor: pointer; }
+        .btn-secondary:hover { background: #2C1810; color: #FFFAF0; box-shadow: 2px 2px 0 #2C1810; transform: translate(2px, 2px); }
+        .divider { display: flex; align-items: center; gap: 1rem; }
+        .divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: #E8DDD4; }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 <body class="bg-bg text-txt font-sans">
+
     <!-- Navbar -->
-    <nav class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur border-b border-primary/10 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 flex items-center justify-between h-16">
-            <a href="/" class="font-display text-xl text-primary cursor-pointer">Tante Es</a>
-            <div class="hidden md:flex items-center gap-6">
-                <a href="/" class="text-txt hover:text-primary transition-colors duration-200 cursor-pointer">Home</a>
-                <a href="over-ons.html" class="text-txt hover:text-primary transition-colors duration-200 cursor-pointer">Over Ons</a>
-                <a href="menu.html" class="text-txt hover:text-primary transition-colors duration-200 cursor-pointer">Menu</a>
-                <a href="feestjes.html" class="text-primary font-semibold cursor-pointer">Feestjes</a>
-                <a href="lumberjack.html" class="text-txt hover:text-primary transition-colors duration-200 cursor-pointer">Lumberjack BBQ</a>
-                <a href="contact.html" class="bg-cta text-white px-5 py-2 rounded-lg hover:bg-amber-800 transition-colors duration-200 cursor-pointer font-semibold">Reserveren</a>
+    <nav class="fixed top-4 left-4 right-4 z-50">
+        <div class="max-w-6xl mx-auto bg-bg/95 backdrop-blur-sm border-2 border-txt px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="/" class="cursor-pointer"><span class="text-2xl font-bold tracking-wide font-display">Tante Es</span></a>
+                <div class="hidden md:flex items-center gap-6 sm:gap-8">
+                    <a href="/" class="text-sm font-medium text-txt-muted hover:text-primary transition-colors cursor-pointer">Home</a>
+                    <a href="over-ons.html" class="text-sm font-medium text-txt-muted hover:text-primary transition-colors cursor-pointer">Over Ons</a>
+                    <a href="menu.html" class="text-sm font-medium text-txt-muted hover:text-primary transition-colors cursor-pointer">Menu</a>
+                    <a href="feestjes.html" class="text-sm font-medium text-primary transition-colors cursor-pointer">Feestjes</a>
+                    <a href="lumberjack.html" class="text-sm font-medium text-txt-muted hover:text-primary transition-colors cursor-pointer">Lumberjack BBQ</a>
+                </div>
+                <div class="hidden md:block"><a href="contact.html" class="btn-primary text-sm py-2.5 px-5">Reserveren</a></div>
+                <button id="menuBtn" class="md:hidden p-2 cursor-pointer" aria-label="Menu"><svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
             </div>
-            <button id="menuBtn" class="md:hidden min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer" aria-label="Menu">
-                <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-            </button>
-        </div>
-        <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-primary/10 px-4 pb-4">
-            <a href="/" class="block py-3 text-txt hover:text-primary cursor-pointer">Home</a>
-            <a href="over-ons.html" class="block py-3 text-txt hover:text-primary cursor-pointer">Over Ons</a>
-            <a href="menu.html" class="block py-3 text-txt hover:text-primary cursor-pointer">Menu</a>
-            <a href="feestjes.html" class="block py-3 text-primary font-semibold cursor-pointer">Feestjes</a>
-            <a href="lumberjack.html" class="block py-3 text-txt hover:text-primary cursor-pointer">Lumberjack BBQ</a>
-            <a href="contact.html" class="block py-3 bg-cta text-white text-center rounded-lg cursor-pointer font-semibold">Reserveren</a>
+            <div id="mobileMenu" class="hidden md:hidden pt-6 mt-4 border-t-2 border-txt">
+                <div class="flex flex-col gap-4">
+                    <a href="/" class="text-sm font-medium hover:text-primary cursor-pointer">Home</a>
+                    <a href="over-ons.html" class="text-sm font-medium hover:text-primary cursor-pointer">Over Ons</a>
+                    <a href="menu.html" class="text-sm font-medium hover:text-primary cursor-pointer">Menu</a>
+                    <a href="feestjes.html" class="text-sm font-medium text-primary cursor-pointer">Feestjes</a>
+                    <a href="lumberjack.html" class="text-sm font-medium hover:text-primary cursor-pointer">Lumberjack BBQ</a>
+                    <a href="contact.html" class="btn-primary text-sm py-2.5 text-center mt-2">Reserveren</a>
+                </div>
+            </div>
         </div>
     </nav>
 
     <!-- Hero -->
-    <section class="relative h-[50vh] min-h-[400px] flex items-center justify-center">
-        <img src="images/event1.jpeg" alt="Feestjes bij Tante Es" class="absolute inset-0 w-full h-full object-cover">
-        <div class="hero-overlay absolute inset-0"></div>
-        <div class="relative z-10 text-center px-4">
-            <h1 class="font-display text-4xl md:text-5xl text-white mb-4">Feestjes & Evenementen</h1>
-            <p class="text-white/80 text-lg">Wij maken het u graag gemakkelijk</p>
-        </div>
-    </section>
-
-    <!-- Intro -->
-    <section class="py-20 md:py-28 px-4 md:px-6 lg:px-8">
-        <div class="max-w-4xl mx-auto text-center fade-in">
-            <span class="text-cta font-semibold uppercase tracking-widest text-sm">Zin in een leuk feest?</span>
-            <h2 class="font-display text-3xl md:text-4xl text-primary mt-4 mb-8">Wij Organiseren Het Voor U</h2>
-            <p class="text-lg leading-relaxed max-w-2xl mx-auto mb-4">En zelf niet de ruimte of de mogelijkheid dit te organiseren? Wij maken het u graag gemakkelijk.</p>
-            <p class="text-lg leading-relaxed max-w-2xl mx-auto">Wij hebben geen vast concept — in overleg met onze opdrachtgever organiseren wij uw dag precies zoals u hem in gedachten heeft.</p>
+    <section class="pt-32 pb-12 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-bg-warm border-2 border-txt text-sm font-medium mb-6">
+                        <svg class="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0A1.75 1.75 0 003 15.546V12a9 9 0 0118 0v3.546z"/></svg>
+                        <span>Zin in een leuk feest?</span>
+                    </div>
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 leading-tight font-display">Feestjes &<br><span class="text-primary">Evenementen</span></h1>
+                    <p class="text-lg text-txt-muted mb-6 leading-relaxed">Wij hebben geen vast concept — in overleg met u organiseren wij uw dag precies zoals u hem in gedachten heeft.</p>
+                    <p class="text-lg text-txt-muted mb-8 leading-relaxed">Niet de ruimte of mogelijkheid? Wij maken het u graag gemakkelijk — ook catering op locatie behoort tot de mogelijkheden.</p>
+                    <a href="contact.html" class="btn-primary">Neem Contact Op</a>
+                </div>
+                <div class="block-card overflow-hidden fade-in">
+                    <img src="images/event1.jpeg" alt="Feestje bij Tante Es" class="w-full aspect-[4/3] object-cover">
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Mogelijkheden -->
-    <section class="bg-white py-20 px-4 md:px-6 lg:px-8">
-        <div class="max-w-5xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="card-hover bg-bg rounded-2xl p-8 text-center fade-in">
-                <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0A1.75 1.75 0 003 15.546V12a9 9 0 0118 0v3.546zM12 3v1m0 0a3 3 0 013 3v1H9V7a3 3 0 013-3z"/></svg>
-                </div>
-                <h3 class="font-display text-lg text-primary mb-2">Verjaardag</h3>
+    <section class="py-12 sm:py-20 px-6 bg-bg-warm">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-10 sm:mb-16">
+                <div class="divider max-w-xs mx-auto mb-4"><svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0118 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg></div>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 font-display">Wat Is Mogelijk?</h2>
+                <p class="text-txt-muted max-w-md mx-auto">Van alles is mogelijk. Catering op locatie — wij zorgen voor de rest.</p>
             </div>
-            <div class="card-hover bg-bg rounded-2xl p-8 text-center fade-in">
-                <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="block-card p-8 text-center fade-in">
+                    <div class="w-16 h-16 bg-bg-warm border-2 border-txt flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0A1.75 1.75 0 013 15.546V12a9 9 0 0118 0v3.546zM12 3v1m0 0a3 3 0 013 3v1H9V7a3 3 0 013-3z"/></svg>
+                    </div>
+                    <h3 class="font-display text-lg mb-2">Verjaardag</h3>
                 </div>
-                <h3 class="font-display text-lg text-primary mb-2">Receptie</h3>
-            </div>
-            <div class="card-hover bg-bg rounded-2xl p-8 text-center fade-in">
-                <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                <div class="block-card p-8 text-center fade-in">
+                    <div class="w-16 h-16 bg-bg-warm border-2 border-txt flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                    </div>
+                    <h3 class="font-display text-lg mb-2">Receptie</h3>
                 </div>
-                <h3 class="font-display text-lg text-primary mb-2">Huwelijk</h3>
-            </div>
-            <div class="card-hover bg-bg rounded-2xl p-8 text-center fade-in">
-                <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z"/></svg>
+                <div class="block-card p-8 text-center fade-in">
+                    <div class="w-16 h-16 bg-bg-warm border-2 border-txt flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                    </div>
+                    <h3 class="font-display text-lg mb-2">Huwelijk</h3>
                 </div>
-                <h3 class="font-display text-lg text-primary mb-2">Koffietafel</h3>
+                <div class="block-card p-8 text-center fade-in">
+                    <div class="w-16 h-16 bg-bg-warm border-2 border-txt flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z"/></svg>
+                    </div>
+                    <h3 class="font-display text-lg mb-2">Koffietafel</h3>
+                </div>
             </div>
+            <p class="text-center text-lg text-txt-muted mt-8 fade-in">Catering op locatie — van alles is mogelijk.</p>
         </div>
-        <p class="text-center text-lg text-txt/70 mt-8 fade-in">Catering op locatie — van alles is mogelijk.</p>
     </section>
 
-    <!-- Tafel van Tante Es -->
-    <section class="py-20 md:py-28 px-4 md:px-6 lg:px-8">
-        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <div class="fade-in">
-                <img src="images/tafel1.jpeg" alt="De Tafel van Tante Es" class="rounded-2xl shadow-xl w-full object-cover aspect-square" loading="lazy">
-            </div>
-            <div class="fade-in">
-                <span class="text-cta font-semibold uppercase tracking-widest text-sm">Uniek Concept</span>
-                <h2 class="font-display text-3xl text-primary mt-4 mb-6">De Tafel van Tante Es</h2>
-                <p class="text-lg leading-relaxed mb-4">Schuif aan bij de leukste tafel van Nederland! 20 mensen — 1 tafel — 1 thema — minimaal 5 gangen.</p>
-                <p class="text-lg leading-relaxed mb-4">Ik kook een mooie maaltijd, en zie hoe eten verbroederd!</p>
-                <p class="text-lg leading-relaxed mb-6">Uit dit event zijn al vele mooie vriendschappen en goede verhalen geboren!</p>
-                <div class="bg-primary/10 rounded-xl p-6">
-                    <p class="font-display text-2xl text-primary mb-1">€37,50 p.p.</p>
-                    <p class="text-txt/70">Inclusief welkomstdrankje</p>
+    <!-- De Tafel van Tante Es -->
+    <section class="py-12 sm:py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+                <div class="block-card overflow-hidden fade-in">
+                    <img src="images/tafel1.jpeg" alt="De Tafel van Tante Es" class="w-full aspect-square object-cover">
+                </div>
+                <div class="lg:pl-8">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-bg-warm border-2 border-txt text-sm font-medium mb-6">
+                        <span>✨ Uniek Concept</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 font-display">De Tafel van<br>Tante Es</h2>
+                    <p class="text-txt-muted mb-4 leading-relaxed">Schuif aan bij de leukste tafel van Nederland!</p>
+                    <p class="text-txt-muted mb-4 leading-relaxed"><strong>20 mensen — 1 tafel — 1 thema — minimaal 5 gangen.</strong></p>
+                    <p class="text-txt-muted mb-4 leading-relaxed">Ik kook een mooie maaltijd, en zie hoe eten verbroederd!</p>
+                    <p class="text-txt-muted mb-8 leading-relaxed">Uit dit event zijn al vele mooie vriendschappen en goede verhalen geboren!</p>
+                    <div class="block-card p-6 text-center inline-block">
+                        <p class="font-display text-3xl text-primary mb-1">€37,50 p.p.</p>
+                        <p class="text-txt-muted text-sm">Inclusief welkomstdrankje</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Event fotos -->
-    <section class="py-16 px-4 bg-white">
-        <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-3">
-            <img src="images/event2.jpeg" alt="Evenement" class="rounded-xl w-full h-56 object-cover fade-in" loading="lazy">
-            <img src="images/event3.jpeg" alt="Evenement" class="rounded-xl w-full h-56 object-cover fade-in" loading="lazy">
-            <img src="images/google/google_place_1.jpg" alt="Sfeer" class="rounded-xl w-full h-56 object-cover fade-in" loading="lazy">
+    <section class="py-12 px-6 bg-bg-warm">
+        <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div class="block-card overflow-hidden fade-in"><img src="images/event2.jpeg" alt="Evenement" class="w-full h-56 object-cover"></div>
+            <div class="block-card overflow-hidden fade-in"><img src="images/event3.jpeg" alt="Evenement" class="w-full h-56 object-cover"></div>
+            <div class="block-card overflow-hidden fade-in"><img src="images/google/google_place_1.jpg" alt="Sfeer" class="w-full h-56 object-cover"></div>
         </div>
     </section>
 
     <!-- CTA -->
-    <section class="bg-primary py-16 px-4 text-center">
-        <div class="max-w-3xl mx-auto fade-in">
-            <h2 class="font-display text-3xl text-white mb-4">Neem Contact Op</h2>
-            <p class="text-white/80 mb-8 text-lg">Neem gerust contact op voor de mogelijkheden.</p>
-            <a href="contact.html" class="bg-cta hover:bg-amber-800 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors duration-200 cursor-pointer inline-block min-h-[44px]">Contact</a>
+    <section class="py-12 sm:py-20 px-6 bg-bg-dark text-white">
+        <div class="max-w-3xl mx-auto text-center fade-in">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 font-display">Neem Contact Op</h2>
+            <p class="text-white/70 mb-8">Neem gerust contact op voor de mogelijkheden.</p>
+            <a href="contact.html" class="btn-primary text-lg">Contact</a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-txt text-white py-16 px-4 md:px-6 lg:px-8">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-12">
-            <div><h3 class="font-display text-xl mb-4">Tante Es</h3><p class="text-white/70">Bourgondisch genieten in Ravenstein aan de Maas.</p></div>
-            <div><h3 class="font-display text-xl mb-4">Menu</h3><ul class="space-y-2"><li><a href="over-ons.html" class="text-white/70 hover:text-white cursor-pointer">Over Ons</a></li><li><a href="menu.html" class="text-white/70 hover:text-white cursor-pointer">Ons Menu</a></li><li><a href="feestjes.html" class="text-white/70 hover:text-white cursor-pointer">Feestjes</a></li><li><a href="lumberjack.html" class="text-white/70 hover:text-white cursor-pointer">Lumberjack BBQ</a></li><li><a href="contact.html" class="text-white/70 hover:text-white cursor-pointer">Contact</a></li></ul></div>
-            <div><h3 class="font-display text-xl mb-4">Contact</h3><p class="text-white/70 mb-2">Marktstraat 16, 5371 AD Ravenstein</p><p class="text-white/70 mb-2"><a href="tel:0648239327" class="hover:text-white cursor-pointer">06 - 48239327</a></p><p class="text-white/70"><a href="mailto:Info@TanteEsBorrelBistro.nl" class="hover:text-white cursor-pointer">Info@TanteEsBorrelBistro.nl</a></p><div class="text-white/50 text-sm mt-4"><p>Do 17:00–22:00 · Vr 17:00–00:00</p><p>Za 17:00–00:00 · Zo 14:00–21:00</p></div></div>
-        </div>
-        <div class="max-w-6xl mx-auto mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-white/40 text-sm">© 2026 Tante Es Borrel & Bistro</p>
-            <p class="text-white/40 text-sm">Gebouwd door <a href="https://www.code-lieshout.nl" class="hover:text-white cursor-pointer">Code Lieshout</a></p>
+    <footer class="py-10 sm:py-16 px-6 bg-bg-dark text-white border-t border-white/10">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div><span class="text-2xl font-bold font-display">Tante Es</span><p class="text-white/60 mt-4">Bourgondisch genieten in Ravenstein aan de Maas.</p></div>
+                <div><h4 class="font-bold mb-4 font-display">Pagina's</h4><ul class="space-y-2"><li><a href="over-ons.html" class="text-white/60 hover:text-primary transition-colors cursor-pointer">Over Ons</a></li><li><a href="menu.html" class="text-white/60 hover:text-primary transition-colors cursor-pointer">Menu</a></li><li><a href="feestjes.html" class="text-white/60 hover:text-primary transition-colors cursor-pointer">Feestjes</a></li><li><a href="lumberjack.html" class="text-white/60 hover:text-primary transition-colors cursor-pointer">Lumberjack BBQ</a></li><li><a href="contact.html" class="text-white/60 hover:text-primary transition-colors cursor-pointer">Contact</a></li></ul></div>
+                <div><h4 class="font-bold mb-4 font-display">Contact</h4><p class="text-white/60 mb-2">Marktstraat 16, 5371 AD Ravenstein</p><p class="text-white/60 mb-2"><a href="tel:0648239327" class="hover:text-primary cursor-pointer">06 - 48239327</a></p><p class="text-white/60"><a href="mailto:Info@TanteEsBorrelBistro.nl" class="hover:text-primary cursor-pointer">Info@TanteEsBorrelBistro.nl</a></p><div class="text-white/40 text-sm mt-4"><p>Do 17:00–22:00 · Vr 17:00–00:00</p><p>Za 17:00–00:00 · Zo 14:00–21:00</p></div></div>
+            </div>
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-white/40">© 2026 Tante Es Borrel & Bistro, Ravenstein</p>
+                <p class="text-sm text-white/40">Gebouwd door <a href="https://www.code-lieshout.nl" class="hover:text-white cursor-pointer">Code Lieshout</a></p>
+            </div>
         </div>
     </footer>
     <script>
